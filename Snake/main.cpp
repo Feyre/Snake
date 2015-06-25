@@ -33,6 +33,24 @@ int main(){
 	return 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Full screen = sf::Style::Fullscreen
 // bordered = sf::Style::None, window.setSize(sf::Vector2u(x,y)), sindow.setPosition(sf::Vector2i(0,0))
 

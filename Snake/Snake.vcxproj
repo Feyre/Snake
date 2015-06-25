@@ -75,6 +75,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Players.cpp" />
+    <ClCompile Include="Segment.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Players.h" />
+    <ClInclude Include="Segment.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
