@@ -5,9 +5,10 @@
 using namespace std;
 
 int main(){
-
+	sf::ContextSettings settings;
+	settings.antialiasingLevel = 8;
 	// sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "SFML Application", sf::Style::None);
-	sf::RenderWindow window(sf::VideoMode(640, 480), "BMTron", sf::Style::Default);
+	sf::RenderWindow window(sf::VideoMode(640, 480), "BMTron", sf::Style::Default, settings);
 	sf::Vector2u size = window.getSize();
 	unsigned int width = size.x;
 	unsigned int height = size.y;
@@ -15,6 +16,20 @@ int main(){
 	if (sf::Joystick::isConnected(0)) {
 		cout << "Joystick 0 connected.\n";
 	}
+
+	sf::CircleShape triangle(100, 3);
+	triangle.setFillColor(sf::Color(15, 155, 50, 255));
+	triangle.setPosition(0,0);
+
+	int radius = 50;
+	int x = 150;
+	int y = 150;
+
+	sf::ConvexShape triangle2;
+	triangle2.setPointCount(3);
+	triangle2.setPoint(0, sf::Vector2f(x, y-radius/2));
+	triangle2.setPoint(1, sf::Vector2f(x-radius/2, y+radius/2));
+	triangle2.setPoint(2, sf::Vector2f(x+radius/2, y+radius/2));
 
 	while (window.isOpen()) {
 		sf::Event event;
@@ -27,7 +42,8 @@ int main(){
 		}
 
 		window.clear();
-		//window.draw(sprite);
+		window.draw(triangle);
+		window.draw(triangle2);
 		window.display();
 	}
 	return 0;

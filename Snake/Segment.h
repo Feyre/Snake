@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
-class Segment
+class Segment : public sf::CircleShape
 {
 private:
 	sf::Vector2i _pos;
