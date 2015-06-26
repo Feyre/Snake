@@ -4,6 +4,9 @@
 #include <string>
 #include <vector>
 #include "Segment.h"
+#include "Controls.h"
+#include "Keyboard.h"
+#include "Joystick.h"
 using std::string;
 using std::vector;
 
@@ -12,6 +15,7 @@ class Player
 private:
 	string _name;
 	sf::Color _col;
+	Controls* _cont;
 	vector<Segment> _snake;
 	unsigned char _direction;
 

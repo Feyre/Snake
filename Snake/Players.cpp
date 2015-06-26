@@ -10,6 +10,10 @@ Players::~Players()
 {
 }
 
+void Players::addPlayer(Player player) {
+	_players.push_back(player);
+}
+
 void Players::update() {
 	for (int ii = 0; ii < _players.size(); ii++) {
 		_players[ii].update();

@@ -2,7 +2,7 @@
 // Graphics, Audio, Network.
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Segment.h"
+#include "Players.h"
 #include <time.h>
 #include <stdlib.h>
 
@@ -13,6 +13,31 @@ int main(){
 	settings.antialiasingLevel = 8;
 	//sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "SFML Application", sf::Style::None);
 	sf::RenderWindow window(sf::VideoMode(640, 480), "BMTron", sf::Style::Default, settings);
+
+	Players _players;
+	_players.addPlayer(Player(Controls(), Color(), _direction));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	if (sf::Joystick::isConnected(0)) {
 		cout << "Joystick 0 connected.\n";
