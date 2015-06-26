@@ -18,5 +18,9 @@ private:
 public:
 	Player();
 	~Player();
+
+	void update();
+	void move();
+	void draw();
 };
 

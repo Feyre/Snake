@@ -2,34 +2,32 @@
 // Graphics, Audio, Network.
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Segment.h"
+#include <time.h>
+#include <stdlib.h>
+
 using namespace std;
 
 int main(){
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8;
-	// sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "SFML Application", sf::Style::None);
+	//sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "SFML Application", sf::Style::None);
 	sf::RenderWindow window(sf::VideoMode(640, 480), "BMTron", sf::Style::Default, settings);
-	sf::Vector2u size = window.getSize();
-	unsigned int width = size.x;
-	unsigned int height = size.y;
 
 	if (sf::Joystick::isConnected(0)) {
 		cout << "Joystick 0 connected.\n";
 	}
 
-	sf::CircleShape triangle(100, 3);
-	triangle.setFillColor(sf::Color(15, 155, 50, 255));
-	triangle.setPosition(0,0);
+	srand(time(NULL));
+	vector<Segment> segs;
+	for (int ii = 0; ii <= 2*640/Delta+1; ii++) {
+		for (int jj = 0; jj <= 480/Height*1.3; jj++) {
+			int adj = rand() % 50 + 1-25;
+			//segs.push_back(Segment(ii, jj, sf::Color(rand() % 50 + 1+adj, rand() % 100 - 50 + 128+adj, rand() % 55 + 151+adj, 255)));
+			segs.push_back(Segment(ii, jj, sf::Color(rand() % 255 + 1, rand() % 255 + 1, 255, 255)));
+		}
+	}
 
-	int radius = 50;
-	int x = 150;
-	int y = 150;
-
-	sf::ConvexShape triangle2;
-	triangle2.setPointCount(3);
-	triangle2.setPoint(0, sf::Vector2f(x, y-radius/2));
-	triangle2.setPoint(1, sf::Vector2f(x-radius/2, y+radius/2));
-	triangle2.setPoint(2, sf::Vector2f(x+radius/2, y+radius/2));
 
 	while (window.isOpen()) {
 		sf::Event event;
@@ -42,8 +40,9 @@ int main(){
 		}
 
 		window.clear();
-		window.draw(triangle);
-		window.draw(triangle2);
+		for (int ii = 0; ii < segs.size(); ii++) {
+			window.draw(segs[ii]);
+		}
 		window.display();
 	}
 	return 0;
